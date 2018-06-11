@@ -1,0 +1,38 @@
+<div class="container" ng-controller="CustomerDetailsCtrl">
+    <div class="row">
+        <h2>Customer Information</h2>
+        <form name="customerForm">
+            <div class="col-sm-12  col-md-6">
+                <md-input-container>
+                    <label>First name</label>
+                    <input ng-model="customer.name.first" type="text" required>
+                </md-input-container>
+            </div>
+            <div class="col-sm-12  col-md-6">
+                <md-input-container>
+                    <label>Last name</label>
+                    <input ng-model="customer.name.last" type="text" required>
+                </md-input-container>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <md-radio-group class="col-sm-12" ng-model="customer.gender" required>
+                    <md-radio-button value="m" class="md-primary">Man</md-radio-button>
+                    <md-radio-button value="w">Woman</md-radio-button>
+                </md-radio-group>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <md-input-container>
+                    <label>Life time value</label>
+                    <input ng-model="customer.customerLifetimeValue" type="number" step="0.01" required>
+                </md-input-container>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <md-datepicker md-open-on-focus ng-model="customer.birthday" md-placeholder="Enter birthdate"></md-datepicker>
+            </div>
+            <div class="col-sm-12 btn-container">
+                <md-button type="submit" class="md-raised md-primary" ng-click="saveContact()" ng-disabled="customerForm.$invalid">Save customer</md-button>
+                <md-button class="md-raised md-warning" ng-click="cancel()">Cancel</md-button>
+            </div>
+        </form>
+    </div>
+</div>

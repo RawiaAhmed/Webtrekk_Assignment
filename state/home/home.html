@@ -1,0 +1,22 @@
+<div class="container" ng-controller="HomeCtrl">
+    <div class="row">
+        <md-card ng-repeat="customer in customers" class="col-md-4 col-sm-6 col-xs-12 customer-card" md-theme-watch>
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-title">{{customer.name.first}} {{customer.name.last}}</span>
+                    <span class="md-subhead">Gender : {{customer.gender == 'm'? 'Male' : 'Female'}}</span>
+                    <span class="md-subhead">Birthday : {{formatBirthDate(customer.birthday)}}</span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-content>
+                <p>Last contact : {{formatDate(customer.lastContact)}}</p>
+                <p>Customer life time value : {{customer.customerLifetimeValue}}</p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="left center">
+                <md-button class="md-raised md-primary" ng-click="navigateToDetails(customer)">Edit</md-button>
+                <md-button class="md-accent md-raised md-hue-2" ng-click="deleteCustomer(customer.customerID)">Delete</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <md-button class="md-raised md-primary add-btn" ng-click="navigateToDetails()">Add new customer</md-button>
+</div>
